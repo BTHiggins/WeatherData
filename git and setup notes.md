@@ -35,7 +35,30 @@ python -c "import duckdb; con = duckdb.connect('md:'); print('authenticated')"
 5. The python file needs to be uploaded to github for it to be deployed. The prefect cloud github app also needs to be installed for authentication on prvate githubs.
 6. Create a deployment (repeatable flow workspace)
     ```
-    prefect-cloud deploy 01_getting_started.py:main \
-    --name my_first_deployment \
-    --from https://github.com/PrefectHQ/quickstart
+    prefect-cloud deploy prefect_test_1.py:main \
+    --name bh_test_deployment
+    ```
+7. Once deployed can now schedule:
+    ```
+    # 3pm everyday  
+    prefect-cloud schedule main/bh_test_deployment "0 15 * * *"
+    ```
+    Can also schedule in prefect cloud in the deployment section
+    
+8. Save secrets like this:
+    ```
+    from prefect.blocks.system import Secret
+
+    secret = Secret(value="Marvin's surprise birthday party is on the 15th")
+    secret.save("surprise-party")
+    ```
+    Recall them like this:
+    ```
+    from prefect import flow    
+    from prefect.blocks.system import Secret
+
+    @flow
+    def my_flow():
+        secret = Secret.load("surprise-party")
+        print(secret.get())
     ```
