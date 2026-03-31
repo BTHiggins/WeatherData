@@ -1,7 +1,7 @@
 # prefect.yaml
 deployments:
   - name: weather-forecast-deployment
-    entrypoint: weather_pipeline.py:weather_forecast_pipeline
+    entrypoint: weather_extract.py:weather_forecast_pipeline
     work_pool:
       name: default-work-pool
       job_variables:
