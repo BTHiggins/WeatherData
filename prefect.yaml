@@ -1,0 +1,15 @@
+# prefect.yaml
+deployments:
+  - name: weather-forecast-deployment
+    entrypoint: weather_pipeline.py:weather_forecast_pipeline
+    work_pool:
+      name: default-work-pool
+      job_variables:
+        pip_packages:
+          - openmeteo-requests
+          - requests-cache
+          - retry-requests
+          - polars
+          - duckdb
+          - numpy
+          - pyarrow
