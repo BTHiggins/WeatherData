@@ -62,3 +62,25 @@ python -c "import duckdb; con = duckdb.connect('md:'); print('authenticated')"
         secret = Secret.load("surprise-party")
         print(secret.get())
     ```
+    Just run the python file in the terminal (python file_name.py) and as long as the terminal is already logged into prefect cloud it will work.
+
+
+
+1. Deploy from github:
+    uvx prefect-cloud deploy <path/to/script.py:entrypoint_function_name> \
+    --from <github-account>/<repo-name> \
+    --name <deployment_name>
+
+    uvx prefect-cloud deploy weather_extract.py:weather_forecast_pipeline \
+    --from BTHiggins/WeatherData \
+    --name weather_data_pipeline
+
+
+
+DUCKDB auth errors:
+1. Create a service account
+2. Store the token in prefect secrets block
+3. Create a share link from the database in motherduck, "anyone in the org".
+    - The service account being a member means they can access the motherduck instance but does not grant them rights to every database.
+# NOTE: 
+    - The service account token did not work, instead I simply created an access token for the pipeline.
