@@ -73,7 +73,10 @@ python -c "import duckdb; con = duckdb.connect('md:'); print('authenticated')"
 
     uvx prefect-cloud deploy weather_extract.py:weather_forecast_pipeline \
     --from BTHiggins/WeatherData \
-    --name weather_data_pipeline
+    --name weather-forecast-deployment
+# Note: The --name needs to be the same as specified in the yaml config file
+
+# To update the deployment, run "prefect deploy" in the terminal
 
 
 
