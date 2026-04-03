@@ -153,7 +153,7 @@ def write_to_duckdb(
 
     con.sql(f"""
         CREATE TABLE IF NOT EXISTS {db_name}.forecast AS
-        SELECT * FROM df_raw WHERE FALSE
+        SELECT * FROM df_raw
     """)
 
     con.sql(f"""
