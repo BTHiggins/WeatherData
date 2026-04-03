@@ -97,6 +97,7 @@ def build_dataframe(
         extract_time=datetime.fromtimestamp(hourly.Time(), timezone.utc).time(),
         fc_datetime=pl.datetime_range(start, end, freq, closed="left"),
     ).with_columns(
+        extract_time = pl.col('extract_time').dt.strftime('%H:%M:%S'),
         fc_date=pl.col("fc_datetime").dt.date(),
         fc_hour=pl.col("fc_datetime").dt.strftime("%H"),
         row_id=pl.concat_str(
