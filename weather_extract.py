@@ -94,7 +94,7 @@ def build_dataframe(
         lat=response.Latitude(),
         lon=response.Longitude(),
         extract_date=datetime.fromtimestamp(hourly.Time(), timezone.utc).date(),
-        extract_time=datetime.now().time(),
+        extract_time=datetime.fromtimestamp(hourly.Time(), timezone.utc).time(),
         fc_datetime=pl.datetime_range(start, end, freq, closed="left"),
     ).with_columns(
         fc_date=pl.col("fc_datetime").dt.date(),

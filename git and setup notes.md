@@ -95,3 +95,6 @@ DUCKDB auth errors:
 # to do: fix the constraint part by updating the tables to have a unique constraint:
 # run this in motherduck main forecast table:
 "ALTER TABLE my_table ADD CONSTRAINT unique_col1_col2 UNIQUE (col1, col2);"
+
+
+Turns out you can get a data type error: DuckDB does not support nanosecond-unit times
