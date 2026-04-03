@@ -159,7 +159,6 @@ def write_to_duckdb(
     con.sql(f"""
         INSERT INTO {db_name}.forecast
         SELECT * FROM {db_name}.forecast_staging
-        ON CONFLICT (extract_date, extract_time) DO NOTHING
     """)
     logger.info("Upsert into main forecast table complete")
 

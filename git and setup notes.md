@@ -87,3 +87,11 @@ DUCKDB auth errors:
     - The service account being a member means they can access the motherduck instance but does not grant them rights to every database.
 # NOTE: 
     - The service account token did not work, instead I simply created an access token for the pipeline.
+
+
+
+
+
+# to do: fix the constraint part by updating the tables to have a unique constraint:
+# run this in motherduck main forecast table:
+"ALTER TABLE my_table ADD CONSTRAINT unique_col1_col2 UNIQUE (col1, col2);"

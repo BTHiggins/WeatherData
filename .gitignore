@@ -2,3 +2,5 @@
 .env
 *secrets.py
 *dev*
+__pycache__/
+*.pyc
