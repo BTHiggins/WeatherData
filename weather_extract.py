@@ -196,7 +196,7 @@ def verify_update(
 # Flow
 # ---------------------------------------------------------------------------
 
-@flow(name="weather-forecast-pipeline", log_prints=True)
+@flow(name="weather-forecast-pipeline", log_prints=True, timeout_seconds=300)
 def weather_forecast_pipeline(
     location: str = LOCATION,
     latitude: float = LATITUDE,
