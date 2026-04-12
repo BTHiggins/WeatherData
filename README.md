@@ -19,7 +19,7 @@ My goal was to setup a low/no cost pipeline fully in cloud infrastructure - Moth
 - Deployments straight from GitHub
 
 ### Claude
-- Simple integration into MotherDuck dives (I chose MotherDuck first, the chicken, or duck in this case, came before the Claude-shaped egg).
+- Simple integration into MotherDuck dives (I chose MotherDuck first; the chicken, or duck in this case, came before the egg).
 
 ## Getting things up and running
 
